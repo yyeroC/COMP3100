@@ -1,6 +1,6 @@
     import java.io.*;  
     import java.net.*;  
-    public class MyClient {  
+    public class Test {  
     
     
     
@@ -39,17 +39,17 @@
     dout.write(("OK\n").getBytes());
     dout.flush();
     
-    int nServers = Character.getNumericValue(str.charAt(5));
+    String[] DATA = str.split(" ");
+    int nServers = Integer.valueOf(DATA[1]);
     int j = 0;
     String[] largest = new String[10];
-    
+    int count = 0;
     for(int i = 0; i < nServers; i++) {
     	str = (String)in.readLine();
     	System.out.println(str);
-    	
     	String[] ser = str.split(" ");
     	int cores = Integer.parseInt(String.valueOf(ser[4]));
-    	
+    	count++;
     	if(j < cores) {
     		j = cores;
     		largest = ser;
@@ -70,3 +70,4 @@
     }catch(Exception e){System.out.println(e);}  
     }  
     }  
+
