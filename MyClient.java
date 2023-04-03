@@ -31,18 +31,16 @@
     
     boolean found = false;
     boolean none = false; 
+    String[] jobs = new String[10];
+    jobs[0] = "1";
     
-   while(none != true) {
+    while(str != "NONE") {
     dout.write(("REDY\n").getBytes());
     dout.flush();
     str = (String)in.readLine();
+    if(str.equals("NONE")) break;
     
-    String[] jobs = str.split(" ", 10);
-    System.out.println(jobs[0]);
-    if(jobs[0].equals("NONE")) {
-    	none = true;
-    }
-    
+    jobs = str.split(" ", 10);
     if(found == false) {
     dout.write(("GETS All\n").getBytes());
     dout.flush();
@@ -52,12 +50,13 @@
     
     dout.write(("OK\n").getBytes());
     dout.flush();
-    
+    	
     String[] DATA = str.split(" ");
     int nServers = Integer.valueOf(DATA[1]);
     for(int i = 0; i < nServers; i++) {
     	str = (String)in.readLine();
     	System.out.println(str);
+    	
     	String[] ser = str.split(" ");
     	count++;
     	int tempCores = Integer.parseInt(String.valueOf(ser[4]));
@@ -76,10 +75,11 @@
   
     	dout.write(("OK\n").getBytes());
    	dout.flush();
-   	 
+   	
    	str = (String)in.readLine();
     	System.out.println(str);
-    	if(!str.equals(".") || !str.equals("ERR")){
+    
+    
     	if(jobs[0].equals("JOBN")) {
     		if(schedCount == count) {
     			schedCount = 0;
@@ -88,16 +88,19 @@
         	dout.flush();
         	schedCount++;
         }
-        }
-   }
+  }
    
-    dout.write(("OK\n").getBytes());
-    dout.flush();
+ 	str = (String)in.readLine();
+    System.out.println(str + "hi");
     
     dout.write(("QUIT\n").getBytes());
     dout.flush();
+    
+    str = (String)in.readLine();
+    System.out.println(str + "yo");
     s.close();  
-    }catch(Exception e){System.out.println(e);}  
+    }catch(Exception e){System.out.println(e);}
+      
     }  
     }  
 
