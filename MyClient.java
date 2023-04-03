@@ -21,13 +21,13 @@
     dout.flush();  
     
     String str=(String)in.readLine();  
-    System.out.println(str);
+    
     
     dout.write(("AUTH yeroC\n").getBytes());
     dout.flush();
     
     str = (String)in.readLine();
-    System.out.println(str);
+    
     
     boolean found = false;
     boolean none = false; 
@@ -46,7 +46,7 @@
     dout.flush();
     
     str = (String)in.readLine();
-    System.out.println(str);
+    
     
     dout.write(("OK\n").getBytes());
     dout.flush();
@@ -55,7 +55,7 @@
     int nServers = Integer.valueOf(DATA[1]);
     for(int i = 0; i < nServers; i++) {
     	str = (String)in.readLine();
-    	System.out.println(str);
+    	
     	
     	String[] ser = str.split(" ");
     	count++;
@@ -77,7 +77,6 @@
    	dout.flush();
    	
    	str = (String)in.readLine();
-    	System.out.println(str);
     
     
     	if(jobs[0].equals("JOBN")) {
@@ -91,13 +90,13 @@
   }
    
  	str = (String)in.readLine();
-    System.out.println(str + "hi");
+  
     
     dout.write(("QUIT\n").getBytes());
     dout.flush();
     
     str = (String)in.readLine();
-    System.out.println(str + "yo");
+   
     s.close();  
     }catch(Exception e){System.out.println(e);}
       
