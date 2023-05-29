@@ -31,9 +31,9 @@ public class MyClient {
 	public static void main(String[] args) {
 		try {
 			// Variables for communicating the server socket.
-			Socket s = new Socket("localhost", 50000);
-			DataOutputStream dout = new DataOutputStream(s.getOutputStream());
-			BufferedReader in = new BufferedReader(new InputStreamReader(s.getInputStream()));
+			Socket mySocket = new Socket("localhost", 50000);
+			DataOutputStream dout = new DataOutputStream(mySocket.getOutputStream());
+			BufferedReader in = new BufferedReader(new InputStreamReader(mySocket.getInputStream()));
 
 			// Other global variables used to keep track of tasks.
 			String str;
@@ -98,7 +98,7 @@ public class MyClient {
 
 			// Terminate connection
 			sendMessage(dout, "QUIT");
-			s.close();
+			mySocket.close();
 		} catch (Exception e) {
 			System.out.println(e);
 		}
