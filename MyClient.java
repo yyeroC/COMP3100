@@ -94,7 +94,6 @@ public class MyClient {
 				for(int i = 0; i < Integer.valueOf(DATA[1]) + 1; i++) {
 					readMessage(in);
 				}
-				System.out.println("YES");
 			}
 
 			// Terminate connection
