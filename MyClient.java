@@ -90,7 +90,7 @@ public class MyClient {
 				sendMessage(dout, "SCHD " + jobs[2] + " " + servers[0] + " " + servers[1]);
 				DATA = data.split(" ", 10);
 				
-				//Reads remaining servers
+				//Reads through the rest of the servers
 				for(int i = 0; i < Integer.valueOf(DATA[1]) + 1; i++) {
 					readMessage(in);
 				}
