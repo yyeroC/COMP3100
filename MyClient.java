@@ -56,17 +56,15 @@ public class MyClient {
 			while (true) {
 				// Send "REDY"
 				sendMessage(dout, "REDY");
-				// Recieve Job
+				// Recieve Job and Handle different responses to "REDY"
 				str = readMessage(in);
-				System.out.println("1 " + str);
-				if (str.startsWith("JOBN"))
-					System.out.println("LOL");
 				if (str.startsWith("JCPL")) {
 					while (str.startsWith("JCPL")) {
 						sendMessage(dout, "REDY");
 						str = readMessage(in);
 					}
 				}
+				// Catch "NONE" and exit loop
 				if (str.startsWith("NONE")) {
 					break;
 				}
@@ -78,6 +76,7 @@ public class MyClient {
 				sendMessage(dout, "OK");
 				// Receive Server
 				str = readMessage(in);
+				//Looks for busy servers if none are available
 				if(str.equals(".")) {
 					sendMessage(dout, "GETS Capable " + jobs[4] + " " + jobs[5] + " " + jobs[6]);
 					data = readMessage(in);
