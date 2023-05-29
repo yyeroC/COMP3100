@@ -1,0 +1,6 @@
+# ds-sim server 28-Feb, 2023 @ MQ - client-server
+# Server-side simulator started with './ds-server -c ds-sample-config03.xml -n'
+# Waiting for connection to port 50000 of IP address 127.0.0.1
+# Welcome  yeroC!
+# The system information can be read from 'ds-system.xml'
+t:         37 job     0 (waiting) on # 0 of server MQ_Cloud_large (booting) SCHEDULED
