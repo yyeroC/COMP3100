@@ -20,7 +20,7 @@ public class MyClient {
 		try {
 			String str;
 			str = stream.readLine();
-			System.out.println(str);
+			// System.out.println(str);
 			return str;
 		} catch (Exception e) {
 			System.out.println(e);
@@ -41,7 +41,6 @@ public class MyClient {
 			String[] servers = new String[10];
 			String data;
 			String[] DATA = new String[10];
-			int nServers;
 
 			// Send "HELO"
 			sendMessage(dout, "HELO");
@@ -91,6 +90,7 @@ public class MyClient {
 				sendMessage(dout, "SCHD " + jobs[2] + " " + servers[0] + " " + servers[1]);
 				DATA = data.split(" ", 10);
 				
+				//Reads remaining servers
 				for(int i = 0; i < Integer.valueOf(DATA[1]) + 1; i++) {
 					readMessage(in);
 				}
